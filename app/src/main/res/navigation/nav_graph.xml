@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ListCityFragment">
+
+    <fragment
+        android:id="@+id/ListCityFragment"
+        android:name="com.psa.weather.presentation.list_city.ListCityFragment"
+        android:label="@string/list_city_fragment_label"
+        tools:layout="@layout/fragment_list_city">
+
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/DetailCityFragment">
+            <argument
+                android:name="cityID"
+                android:defaultValue="-1"
+                app:argType="integer" />
+        </action>
+
+        <action
+            android:id="@+id/action_list_to_add"
+            app:destination="@id/AddCityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DetailCityFragment"
+        android:name="com.psa.weather.presentation.detail_city.DetailCityFragment"
+        android:label="@string/detail_city_fragment_label"
+        tools:layout="@layout/fragment_detail_city">
+
+        <action
+            android:id="@+id/action_detail_to_list"
+            app:destination="@id/ListCityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AddCityFragment"
+        android:name="com.psa.weather.presentation.add_city.AddCityFragment"
+        android:label="@string/add_city_fragment_label"
+        tools:layout="@layout/fragment_add_city">
+
+        <action
+            android:id="@+id/action_add_to_list"
+            app:destination="@id/ListCityFragment" />
+    </fragment>
+</navigation>
